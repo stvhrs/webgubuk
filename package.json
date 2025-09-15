@@ -1,0 +1,131 @@
+{
+  "name": "gubukpustakaharmoni ",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@emailjs/browser": "^3.10.0",
+    "@ramonak/react-progress-bar": "^5.0.3",
+    "@reduxjs/toolkit": "^1.9.3",
+    "@testing-library/jest-dom": "^5.16.5",
+    "@testing-library/react": "^13.4.0",
+    "@testing-library/user-event": "^13.5.0",
+    "animate.css": "^4.1.1",
+    "aos": "^2.3.4",
+    "axios": "^1.1.3",
+    "bootstrap": "^5.2.3",
+    "clsx": "^1.2.1",
+    "cogo-toast": "https://github.com/hasanm95/cogo-toast",
+    "emailjs-com": "^3.2.0",
+    "firebase": "^11.10.0",
+    "google-map-react": "^2.2.0",
+    "i18next": "^22.0.4",
+    "i18next-browser-languagedetector": "^7.0.0",
+    "i18next-http-backend": "^2.0.1",
+    "prop-types": "^15.8.1",
+    "react": "^18.2.0",
+    "react-animated-css": "^1.2.1",
+    "react-bootstrap": "^2.5.0",
+    "react-countup": "^6.4.1",
+    "react-dom": "^18.2.0",
+    "react-fast-marquee": "^1.3.5",
+    "react-fullpage": "^0.1.19",
+    "react-helmet-async": "^2.0.5",
+    "react-hooks-paginator": "^0.5.0",
+    "react-hot-toast": "^2.4.0",
+    "react-i18next": "^12.0.0",
+    "react-icons": "^4.7.1",
+    "react-mailchimp-subscribe": "^2.1.3",
+    "react-modal-video": "^2.0.0",
+    "react-on-screen": "^2.1.1",
+    "react-redux": "^8.0.5",
+    "react-router-dom": "^6.8.1",
+    "react-scripts": "5.0.1",
+    "react-scroll-to-top": "^3.0.0",
+    "react-slick": "^0.29.0",
+    "react-visibility-sensor": "^5.1.1",
+    "redux": "^4.2.0",
+    "redux-persist": "^6.0.0",
+    "slick-carousel": "^1.8.1",
+    "swiper": "^8.4.4",
+    "uuid": "^9.0.0",
+    "web-vitals": "^2.1.4",
+    "yarn": "^1.22.22",
+    "yet-another-react-lightbox": "^2.2.0"
+  },
+  "scripts": {
+    "prebuild": "node scripts/generate-sitemap.mjs",
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "postbuild": "react-snap"
+  },
+  "reactSnap": {
+    "source": "build",
+    "inlineCss": false, 
+    "include": [
+      "/",
+     
+     
+      "/katalog/elkapede-bahasa-indonesia-1",
+      "/katalog/elkapede-matematika-1",
+      "/katalog/elkapede-bahasa-inggris-1",
+      "/katalog/elkapede-matematika-2",
+      "/katalog/elkapede-bahasa-indonesia-2",
+      "/katalog/elkapede-bahasa-inggris-2",
+      "/katalog/elkapede-bahasa-inggris-3",
+      "/katalog/elkapede-ilmu-pengetahuan-alam-dan-sosial-3",
+      "/katalog/elkapede-matematika-3",
+      "/katalog/elkapede-bahasa-indonesia-3",
+      "/katalog/elkapede-ilmu-pengetahuan-alam-dan-sosial-4",
+      "/katalog/elkapede-bahasa-indonesia-4",
+      "/katalog/elkapede-bahasa-inggris-4",
+      "/katalog/elkapede-matematika-4",
+      "/katalog/elkapede-bahasa-indonesia-5",
+      "/katalog/elkapede-koding-dan-kecerdasan-artifisial-5",
+      "/katalog/elkapede-matematika-5",
+      "/katalog/elkapede-ilmu-pengetahuan-alam-dan-sosial-5",
+      "/katalog/elkapede-bahasa-inggris-5",
+      "/katalog/elkapede-koding-dan-kecerdasan-artifisial-6",
+      "/katalog/elkapede-bahasa-inggris-6",
+      "/katalog/elkapede-ilmu-pengetahuan-alam-dan-sosial-6",
+      "/katalog/elkapede-matematika-6",
+      "/katalog/elkapede-bahasa-indonesia-6",
+      "/katalog/elkapede-ilmu-pengetahuan-alam-7",
+      "/katalog/elkapede-bahasa-indonesia-7",
+      "/katalog/elkapede-matematika-7",
+      "/katalog/elkapede-ilmu-pengetahuan-sosial-7",
+      "/katalog/elkapede-bahasa-inggris-7"
+    ],    "puppeteerArgs": [
+      "--no-sandbox",
+      "--disable-setuid-sandbox"
+    ]
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.34.0",
+    "eslint": "^8.57.1",
+    "eslint-plugin-react": "^7.37.5",
+    "globals": "^16.3.0",
+    "react-snap": "^1.23.0",
+    "sass": "^1.58.3",
+    "sitemap": "^8.0.0"
+  }
+}
