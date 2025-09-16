@@ -20,8 +20,8 @@ const About = () => {
   return (
     <>
       <Fragment><SEO title="About Us"
-              titleTemplate="Tentang Kami - Gubuk Pustaka Harmoni Artha Nusantara"
-              description="Plupuh, Sragen, Jawa Tengah, Indonesia"
+              titleTemplate="Tentang Kami - Gubuk Pustaka Harmoni "
+              description="Gubuk Pustaka Harmoni — Percetakan dan Penerbit. Layanan cetak buku, Penulisan Naskah, Design Layout Buku, dan Editorial."
             />
         <Suspense fallback={<Preloader />}>
           {/* Search Popup */}

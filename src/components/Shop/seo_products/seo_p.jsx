@@ -78,7 +78,7 @@ export const ldProduct = ({
 
   return prune({
     "@context": "https://schema.org",
-    "@type": isBook ? "Book" : "Product",
+    "@type":"Product",
     name,
     description,
     sku,
@@ -152,14 +152,14 @@ export const ldOrganization = ({ name, url, logo } = {}) =>
  */
 const SEOProduct = ({
   // defaults
-  title = "CV. Gubuk Pustaka Harmoni Artha Nusantara",
+  title = "CV. Gubuk Pustaka Harmoni ",
   titleTemplate = "Percetakan dan Penerbit",
-  description = "Plupuh, Sragen, Jawa Tengah, Indonesia",
-  keywords = "penerbit, percetakan, Gubuk Pustaka Harmoni, buku, poster, kalender,pt,fajar,grafika,artha,nusantara",
+  description = "Gubuk Pustaka Harmoni — Percetakan dan Penerbit. Layanan cetak buku, Penulisan Naskah, Design Layout Buku, dan Editorial.",
+  keywords = "penerbit, percetakan, Gubuk Pustaka Harmoni, buku, poster, kalender,pt,",
   canonical = "https://gubukpustakaharmoni.com/",
   image = "https://gubukpustakaharmoni.com/assets/favicon.png",
   url = "https://gubukpustakaharmoni.com/",
-  author = "CV. Gubuk Pustaka Harmoni Artha Nusantara",
+  author = "CV. Gubuk Pustaka Harmoni ",
 
   // JSON-LD array
   jsonLd = [],

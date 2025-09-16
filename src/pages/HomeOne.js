@@ -39,17 +39,17 @@ const HomeOne = () => {
       <Fragment><SEO  jsonLd={[
           ldWebsite({
             name: "CV Gubuk Pustaka Harmoni",
-            alternateName: "CV Gubuk Pustaka Harmoni Artha Nusantara",
+            alternateName: "CV Gubuk Pustaka Harmoni ",
             url: siteUrl,
           }),
           ldOrganization({
-            name: "CV Gubuk Pustaka Harmoni Artha Nusantara",
+            name: "CV Gubuk Pustaka Harmoni ",
             url: siteUrl,
             logo: `${siteUrl}assets/img/favicon.png` // Ganti dengan path logo Anda
           })
         ]}
         titleTemplate="Welcome"
-        description="Percetakan & Digital Printing terbaik." title="CV Gubuk Pustaka Harmoni Artha Nusantara"
+        description="Percetakan & Digital Printing terbaik." title="CV Gubuk Pustaka Harmoni "
       />
 
         <Suspense fallback={<Preloader />}>

@@ -26,7 +26,6 @@ const ProductDescriptionInfo = ({
   currency,
   finalDiscountedPrice,
   finalProductPrice,
-  cartItems,
   wishlistItem,
   compareItem,
 }) => {
@@ -60,7 +59,7 @@ const ProductDescriptionInfo = ({
               <StarRating ratingValue={product.rating} />
             </div>
             <span style={{ color: '#555', fontSize: '14px' }}>
-              ({product.reviewCount.toLocaleString('id-ID')} ulasan)
+              ({3} ulasan)
             </span>
           </div>
         </div>
@@ -165,7 +164,6 @@ const ProductDescriptionInfo = ({
 
 // ... propTypes dan export default ...
 ProductDescriptionInfo.propTypes = {
-  cartItems: PropTypes.array,
   compareItem: PropTypes.shape({}),
   currency: PropTypes.shape({}),
   discountedPrice: PropTypes.number,

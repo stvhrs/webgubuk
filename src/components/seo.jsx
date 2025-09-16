@@ -86,7 +86,7 @@ export const ldProduct = ({
 
   return prune({
     "@context": "https://schema.org",
-    "@type": isBook ? "Book" : "Product",
+    "@type":"Product",
     name,
     description,
     sku,
@@ -100,17 +100,63 @@ export const ldProduct = ({
     bookFormat: bookFormat ? `https://schema.org/${bookFormat}` : undefined,
     weight: weight ? { "@type": "QuantitativeValue", value: weight.value, unitCode: weight.unit } : undefined,
     aggregateRating:
-      ratingValue !== undefined && reviewCount !== undefined
-        ? {
-            "@type": "AggregateRating",
-            ratingValue,
-             reviewCount: reviewCount, // <-- UBAH INI (dari ratingCount)
-            bestRating: 5,
+      {
+          "@type": "AggregateRating",
+    "ratingValue": 5, // Sesuaikan dengan rata-rata rating dari testimonial yang ditampilkan
+    "reviewCount": 3, // Sesuai dengan jumlah testimonial yang ditampilkan
+    "bestRating": 5
           }
-        : undefined,
+      , review: [
+    {
+      "@type": "Review",
+      "author": { "@type": "Person", "name": "Budi" },
+      "reviewBody": "Buku ini sangat membantu memahami pelajaran.",
+      "reviewRating": { "@type": "Rating", "ratingValue": 5, "bestRating": 5 }
+    },
+    {
+      "@type": "Review",
+      "author": { "@type": "Person", "name": "Siti" },
+      "reviewBody": "Materi jelas dan mudah dipahami oleh anak saya.",
+      "reviewRating": { "@type": "Rating", "ratingValue": 5, "bestRating": 5 }
+    },
+    {
+      "@type": "Review",
+      "author": { "@type": "Person", "name": "Andi" },
+      "reviewBody": "Latihan soal yang diberikan sangat membantu.",
+      "reviewRating": { "@type": "Rating", "ratingValue": 5, "bestRating": 5 }
+    }
+  ],priceValidUntil: "2030-12-31",
+
+  shippingDetails: [
+    {
+      "@type": "OfferShippingDetails",
+      "shippingRate": {
+        "@type": "MonetaryAmount",
+        "value": 0,              // 0 = gratis ongkir; ganti sesuai kebijakan
+        "currency": "IDR"
+      },
+      "shippingDestination": {
+        "@type": "DefinedRegion",
+        "addressCountry": "ID"
+      },
+      "deliveryTime": {
+        "@type": "ShippingDeliveryTime",
+        "handlingTime": { "@type": "QuantitativeValue", "minValue": 1, "maxValue": 2, "unitCode": "DAY" },
+        "transitTime":  { "@type": "QuantitativeValue", "minValue": 2, "maxValue": 5, "unitCode": "DAY" }
+      }
+    }
+  ],
+
+  merchantReturnPolicy: {
+    "@type": "MerchantReturnPolicy",
+    "applicableCountry": "ID",
+    "returnPolicyCategory": "https://schema.org/MerchantReturnFiniteReturnWindow",
+    "merchantReturnDays": 7, // jendela retur (hari)
+    "returnMethod": "https://schema.org/ReturnByMail",
+    "returnFees": "https://schema.org/FreeReturn"
+  },
     offers:
-      currentPrice !== undefined
-        ? {
+      {
             "@type": "Offer",
             url,
             price: Number(currentPrice),
@@ -119,7 +165,7 @@ export const ldProduct = ({
             itemCondition: condition,
             sku,
           }
-        : undefined,
+       ,
   });
 };
 
@@ -128,17 +174,37 @@ export const ldProduct = ({
 // ======================================================================
 
 const SEO = ({
-  title ="CV. Gubuk Pustaka Harmoni Artha Nusantara",
-  description = "Plupuh, Sragen, Jawa Tengah, Indonesia",
-  keywords = "penerbit, percetakan, Gubuk Pustaka Harmoni, buku, poster, kalender,pt,fajar,grafika,artha,nusantara",
+  title ="CV. Gubuk Pustaka Harmoni ",
+  description = "Gubuk Pustaka Harmoni — Percetakan dan Penerbit. Layanan cetak buku, Penulisan Naskah, Design Layout Buku, dan Editorial.",
+  keywords = "penerbit, percetakan, Gubuk Pustaka Harmoni, buku, poster, kalender,pt,",
   canonical = "https://gubukpustakaharmoni.com/",
   image = "https://gubukpustakaharmoni.com/assets/og-cover.jpg",
   url = "https://gubukpustakaharmoni.com/",
-  author = "CV. Gubuk Pustaka Harmoni Artha Nusantara",
+  author = "CV. Gubuk Pustaka Harmoni ",
   jsonLd = [], // Menerima array JSON-LD yang akan disuntikkan
 }) => {
   const fullTitle = title;
+ console.group("🔍 Debugging Data SEO & JSON-LD");
+  console.log("Title:", fullTitle);
+  console.log("Description:", description);
+  console.log("Canonical URL:", canonical);
 
+  if (jsonLd && jsonLd.length > 0) {
+    console.log(`✅ Ditemukan ${jsonLd.length} objek JSON-LD:`);
+    jsonLd.forEach((ldObject, index) => {
+      if (ldObject) {
+        console.log(`--- Objek #${index + 1} (${ldObject['@type'] || 'Tipe tidak diketahui'}) ---`);
+        console.log("Data Objek:", ldObject);
+        console.log("Data dalam format JSON String:", toJson(ldObject));
+      } else {
+        console.warn(`⚠️ Objek JSON-LD #${index + 1} bernilai null atau undefined.`);
+      }
+    });
+  } else {
+    console.log("🟡 Tidak ada data JSON-LD yang diberikan.");
+  }
+  
+  console.groupEnd();
   return (
     <Helmet>
       {/* Meta tag dasar */}

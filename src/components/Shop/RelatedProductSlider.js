@@ -42,9 +42,7 @@ const SameSubjectProductSlider = ({
   // State & store
   const { products } = useSelector((state) => state.product);
   const currency = useSelector((state) => state.currency);
-  const { cartItems = [] } = useSelector((state) => state.cart);
-  const { wishlistItems = [] } = useSelector((state) => state.wishlist);
-  const { compareItems = [] } = useSelector((state) => state.compare);
+
 
   // Filter produk dengan mapel/tag sama
   const relatedProducts = useMemo(() => {
@@ -77,9 +75,7 @@ const SameSubjectProductSlider = ({
               key={product.id}
               product={product}
               currency={currency}
-              cartItem={cartItems.find((it) => it.id === product.id)}
-              wishlistItem={wishlistItems.find((it) => it.id === product.id)}
-              compareItem={compareItems.find((it) => it.id === product.id)}
+         
             />
           ))}
         </div>

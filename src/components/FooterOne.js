@@ -92,7 +92,7 @@ const FooterOne = () => {
                       title='Buka di Google Maps'
                       style={{  }}
                     >
-                      Jl. Tulusari, Kecamatan Plupuh<br />
+                      Kecamatan Gemolong<br />
                       Kabupaten Sragen, Jawa Tengah
                     </a>
                   </div>

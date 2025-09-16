@@ -19,11 +19,11 @@ const Contact = () => {
       <Fragment><SEO jsonLd={[
         ldWebsite({
           name: "Hubungi Kami",
-          alternateName: "CV Gubuk Pustaka Harmoni Artha Nusantara",
+          alternateName: "CV Gubuk Pustaka Harmoni ",
           url: siteUrl,
         }),
         ldOrganization({
-          name: "CV Gubuk Pustaka Harmoni Artha Nusantara",
+          name: "CV Gubuk Pustaka Harmoni ",
           url: siteUrl,
           logo: `${siteUrl}assets/img/favicon.png` // Ganti dengan path logo Anda
         })
