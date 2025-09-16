@@ -90,35 +90,43 @@ const Product = () => {
 
     // Spesifik buku
     authorName: product.author,
-    priceValidUntil: "2030-12-31",
+    offers: {
+      "@type": "Offer",
+      url: canonicalUrl,
+      price: Number(product.price),
+      priceCurrency: "IDR",
+      availability: product.stock > 0 ? "https://schema.org/InStock" : "https://schema.org/OutOfStock",
+      itemCondition: "https://schema.org/NewCondition",
+      priceValidUntil: "2030-12-31", // Ditempatkan di dalam offers
 
-    shippingDetails: [
-      {
+      // Perbaikan: Properti ini harus ada di dalam offer.
+      hasMerchantReturnPolicy: {
+        "@type": "MerchantReturnPolicy",
+        applicableCountry: "ID",
+        returnPolicyCategory: "https://schema.org/MerchantReturnFiniteReturnWindow",
+        merchantReturnDays: 7,
+        returnMethod: "https://schema.org/ReturnByMail",
+        returnFees: "https://schema.org/FreeReturn"
+      },
+
+      // Perbaikan: Properti ini harus ada di dalam offer.
+      shippingDetails: {
         "@type": "OfferShippingDetails",
-        "shippingRate": {
+        shippingRate: {
           "@type": "MonetaryAmount",
-          "value": 0,              // 0 = gratis ongkir; ganti sesuai kebijakan
-          "currency": "IDR"
+          value: 0,
+          currency: "IDR"
         },
-        "shippingDestination": {
+        shippingDestination: {
           "@type": "DefinedRegion",
-          "addressCountry": "ID"
+          addressCountry: "ID"
         },
-        "deliveryTime": {
+        deliveryTime: {
           "@type": "ShippingDeliveryTime",
-          "handlingTime": { "@type": "QuantitativeValue", "minValue": 1, "maxValue": 2, "unitCode": "DAY" },
-          "transitTime": { "@type": "QuantitativeValue", "minValue": 2, "maxValue": 5, "unitCode": "DAY" }
+          handlingTime: { "@type": "QuantitativeValue", minValue: 1, maxValue: 2, unitCode: "DAY" },
+          transitTime: { "@type": "QuantitativeValue", minValue: 2, maxValue: 5, unitCode: "DAY" }
         }
       }
-    ],
-
-    merchantReturnPolicy: {
-      "@type": "MerchantReturnPolicy",
-      "applicableCountry": "ID",
-      "returnPolicyCategory": "https://schema.org/MerchantReturnFiniteReturnWindow",
-      "merchantReturnDays": 7, // jendela retur (hari)
-      "returnMethod": "https://schema.org/ReturnByMail",
-      "returnFees": "https://schema.org/FreeReturn"
     },
     publisherName: product.publisher,
     isbn: product?.specifications?.isbn,

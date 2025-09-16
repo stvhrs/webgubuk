@@ -86,7 +86,7 @@ export const ldProduct = ({
 
   return prune({
     "@context": "https://schema.org",
-    "@type": "Product",
+    "@type":"Product",
     name,
     description,
     sku,
@@ -100,72 +100,69 @@ export const ldProduct = ({
     bookFormat: bookFormat ? `https://schema.org/${bookFormat}` : undefined,
     weight: weight ? { "@type": "QuantitativeValue", value: weight.value, unitCode: weight.unit } : undefined,
     aggregateRating:
+      {
+          "@type": "AggregateRating",
+    "ratingValue": 5, // Sesuaikan dengan rata-rata rating dari testimonial yang ditampilkan
+    "reviewCount": 3, // Sesuai dengan jumlah testimonial yang ditampilkan
+    "bestRating": 5
+          }
+      , review: [
     {
-      "@type": "AggregateRating",
-      "ratingValue": 5, // Sesuaikan dengan rata-rata rating dari testimonial yang ditampilkan
-      "reviewCount": 3, // Sesuai dengan jumlah testimonial yang ditampilkan
-      "bestRating": 5
+      "@type": "Review",
+      "author": { "@type": "Person", "name": "Budi" },
+      "reviewBody": "Buku ini sangat membantu memahami pelajaran.",
+      "reviewRating": { "@type": "Rating", "ratingValue": 5, "bestRating": 5 }
+    },
+    {
+      "@type": "Review",
+      "author": { "@type": "Person", "name": "Siti" },
+      "reviewBody": "Materi jelas dan mudah dipahami oleh anak saya.",
+      "reviewRating": { "@type": "Rating", "ratingValue": 5, "bestRating": 5 }
+    },
+    {
+      "@type": "Review",
+      "author": { "@type": "Person", "name": "Andi" },
+      "reviewBody": "Latihan soal yang diberikan sangat membantu.",
+      "reviewRating": { "@type": "Rating", "ratingValue": 5, "bestRating": 5 }
     }
-    , review: [
-      {
-        "@type": "Review",
-        "author": { "@type": "Person", "name": "Budi" },
-        "reviewBody": "Buku ini sangat membantu memahami pelajaran.",
-        "reviewRating": { "@type": "Rating", "ratingValue": 5, "bestRating": 5 }
-      },
-      {
-        "@type": "Review",
-        "author": { "@type": "Person", "name": "Siti" },
-        "reviewBody": "Materi jelas dan mudah dipahami oleh anak saya.",
-        "reviewRating": { "@type": "Rating", "ratingValue": 5, "bestRating": 5 }
-      },
-      {
-        "@type": "Review",
-        "author": { "@type": "Person", "name": "Andi" },
-        "reviewBody": "Latihan soal yang diberikan sangat membantu.",
-        "reviewRating": { "@type": "Rating", "ratingValue": 5, "bestRating": 5 }
-      }
-    ], priceValidUntil: "2030-12-31",
+  ],offers: {
+      "@type": "Offer",
+      url: url,
+      price: Number(price),
+      priceCurrency: "IDR",
+      availability:  "https://schema.org/InStock",
+      itemCondition: "https://schema.org/NewCondition",
+      priceValidUntil: "2030-12-31", // Ditempatkan di dalam offers
 
-    shippingDetails: [
-      {
+      // Perbaikan: Properti ini harus ada di dalam offer.
+      hasMerchantReturnPolicy: {
+        "@type": "MerchantReturnPolicy",
+        applicableCountry: "ID",
+        returnPolicyCategory: "https://schema.org/MerchantReturnFiniteReturnWindow",
+        merchantReturnDays: 7,
+        returnMethod: "https://schema.org/ReturnByMail",
+        returnFees: "https://schema.org/FreeReturn"
+      },
+
+      // Perbaikan: Properti ini harus ada di dalam offer.
+      shippingDetails: {
         "@type": "OfferShippingDetails",
-        "shippingRate": {
+        shippingRate: {
           "@type": "MonetaryAmount",
-          "value": 0,              // 0 = gratis ongkir; ganti sesuai kebijakan
-          "currency": "IDR"
+          value: 0,
+          currency: "IDR"
         },
-        "shippingDestination": {
+        shippingDestination: {
           "@type": "DefinedRegion",
-          "addressCountry": "ID"
+          addressCountry: "ID"
         },
-        "deliveryTime": {
+        deliveryTime: {
           "@type": "ShippingDeliveryTime",
-          "handlingTime": { "@type": "QuantitativeValue", "minValue": 1, "maxValue": 2, "unitCode": "DAY" },
-          "transitTime": { "@type": "QuantitativeValue", "minValue": 2, "maxValue": 5, "unitCode": "DAY" }
+          handlingTime: { "@type": "QuantitativeValue", minValue: 1, maxValue: 2, unitCode: "DAY" },
+          transitTime: { "@type": "QuantitativeValue", minValue: 2, maxValue: 5, unitCode: "DAY" }
         }
       }
-    ],
-
-    merchantReturnPolicy: {
-      "@type": "MerchantReturnPolicy",
-      "applicableCountry": "ID",
-      "returnPolicyCategory": "https://schema.org/MerchantReturnFiniteReturnWindow",
-      "merchantReturnDays": 7, // jendela retur (hari)
-      "returnMethod": "https://schema.org/ReturnByMail",
-      "returnFees": "https://schema.org/FreeReturn"
-    },
-    offers:
-    {
-      "@type": "Offer",
-      url,
-      price: Number(currentPrice),
-      priceCurrency,
-      availability,
-      itemCondition: condition,
-      sku,
     }
-    ,
   });
 };
 
@@ -174,7 +171,7 @@ export const ldProduct = ({
 // ======================================================================
 
 const SEO = ({
-  title = "CV. Gubuk Pustaka Harmoni ",
+  title ="CV. Gubuk Pustaka Harmoni ",
   description = "Gubuk Pustaka Harmoni — Percetakan dan Penerbit. Layanan cetak buku, Penulisan Naskah, Design Layout Buku, dan Editorial.",
   keywords = "penerbit, percetakan, Gubuk Pustaka Harmoni, buku, poster, kalender,pt,",
   canonical = "https://gubukpustakaharmoni.com/",
@@ -184,7 +181,7 @@ const SEO = ({
   jsonLd = [], // Menerima array JSON-LD yang akan disuntikkan
 }) => {
   const fullTitle = title;
-  console.group("🔍 Debugging Data SEO & JSON-LD");
+ console.group("🔍 Debugging Data SEO & JSON-LD");
   console.log("Title:", fullTitle);
   console.log("Description:", description);
   console.log("Canonical URL:", canonical);
@@ -203,7 +200,7 @@ const SEO = ({
   } else {
     console.log("🟡 Tidak ada data JSON-LD yang diberikan.");
   }
-
+  
   console.groupEnd();
   return (
     <Helmet>
@@ -222,7 +219,7 @@ const SEO = ({
       <meta property="og:title" content={fullTitle} />
       <meta property="og:description" content={description} />
       <meta property="og:image" content={image} />
-      <meta property="og:image:alt" content={title} />
+      <meta property="og:image:alt" content={title } />
       <meta property="og:site_name" content={title} />
 
       {/* Twitter Card */}
