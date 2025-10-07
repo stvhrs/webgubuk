@@ -10,6 +10,7 @@
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
     "animate.css": "^4.1.1",
+    "antd": "^5.27.4",
     "aos": "^2.3.4",
     "axios": "^1.1.3",
     "bootstrap": "^5.2.3",
@@ -62,11 +63,9 @@
   },
   "reactSnap": {
     "source": "build",
-    "inlineCss": false, 
+    "inlineCss": false,
     "include": [
       "/",
-     
-     
       "/katalog/elkapede-bahasa-indonesia-1",
       "/katalog/elkapede-matematika-1",
       "/katalog/elkapede-bahasa-inggris-1",
@@ -96,7 +95,8 @@
       "/katalog/elkapede-matematika-7",
       "/katalog/elkapede-ilmu-pengetahuan-sosial-7",
       "/katalog/elkapede-bahasa-inggris-7"
-    ],    "puppeteerArgs": [
+    ],
+    "puppeteerArgs": [
       "--no-sandbox",
       "--disable-setuid-sandbox"
     ]

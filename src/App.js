@@ -18,6 +18,7 @@ import Faq from "./pages/Faq";
 import Contact from "./pages/Contact";
 import RouteScrollToTop from "./elements/RouteScrollToTop";
 import Katalog from "./pages/Katalog";
+import FormulirSd from "./pages/formulir";
 // import HomeThree from "./pages/HomeThree";
 // import HomeFour from "./pages/HomeFour";
 // import HomeFive from "./pages/HomeFive";
@@ -48,6 +49,7 @@ function App() {
           <Route exact path='/' element={<HomeOne />} />
 
           <Route exact path='/contact' element={<Contact />} />
+          <Route exact path='/formulir-sd' element={<FormulirSd />} />
         </Routes>
         <ScrollToTop smooth color='#52920a' />
       </BrowserRouter>
