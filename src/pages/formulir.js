@@ -2423,7 +2423,7 @@ const App = () => {
     }
 
     const payload = { schoolData, itemsData: summaryItems };
-    const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxExwwoLp-VB_YsMda39NwYYtRzQ0zuAXSTWGnB60xdEw572p64zXriBvrX9J2ryHS3IA/exec";
+    const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxre25NjrlQMc50N0nCs_u07xd-0AnKwErRz1psJNq2L30WSjB56LyAbGNjRMgnDrrQyA/exec";
 
     try {
       const response = await fetch(GOOGLE_SCRIPT_URL, {
@@ -2488,7 +2488,7 @@ const App = () => {
     <ConfigProvider theme={theme}>
       <Layout style={{ minHeight: '100vh', background: '#f7faf7' }}>
         <Header style={{ background: '#fff', textAlign: 'center', boxShadow: '0 2px 8px rgba(0,0,0,0.04)' }}>
-          <Title level={3} style={{ margin: '14px 0' }}>Formulir Pemesanan Buku</Title>
+          <Title level={3} style={{ margin: '14px 0' }}>Formulir Pemesanan Buku SD</Title>
           <Text type="secondary">Isi identitas sekolah → pilih buku → kirim pesanan.</Text>
         </Header>
 
